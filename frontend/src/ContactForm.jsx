@@ -2,7 +2,7 @@ import {useState} from "react"
 
 const ContactForm = ({}) => {
     // state for all 3 variables needed
-    const [firstName, setFirstName] = useSate("");
+    const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [email, setEmail] = useState("");
 
@@ -75,4 +75,4 @@ const ContactForm = ({}) => {
     );
 };
 
-export default ContactForm
+export default ContactForm;
