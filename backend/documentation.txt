@@ -1,0 +1,2 @@
+You first begin with backend and api 
+Configuration first to know the different piece of data that we may use in the database modules
