@@ -38,7 +38,7 @@ def creaet_contact():
         )
 
     # if OK make a new contact, add that in the database and confirmation of action
-    new_contact = Contact(first_name=first_name, last_name=lastname, email=email) # new entry
+    new_contact = Contact(first_name=first_name, last_name=last_name, email=email) # new entry
     try:
         database.session.add(new_contact) # added to database section in string area
         database.session.commit() # write in db permanently
