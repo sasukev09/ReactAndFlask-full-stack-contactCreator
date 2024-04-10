@@ -33,9 +33,52 @@ def creaet_contact():
 
     if not first_name or not last_name or not email:
         return (
-            jsonify({"message: "Please include a first name, last name and email"}), 
+            jsonify({"message": "Please include a first name, last name and email"}), 
             400,
         )
+
+    # if OK make a new contact, add that in the database and confirmation of action
+    new_contact = Contact(first_name=first_name, last_name=lastname, email=email) # new entry
+    try:
+        database.session.add(new_contact) # added to database section in string area
+        database.session.commit() # write in db permanently
+    except Exception as e: # catch exception
+        return jsonify({"message": str(e)}), 400 # message
+    
+    return jsonify({"message": "User has been created."}), 201
+
+# create update method
+@app.route("/update_contact/<int:user_id>", methods=["PATCH"]) #pass to the route, and the id of the user that'll be updated
+def update_contact(user_id):
+    contact = Contact.query.get(user_id) # looking for the user
+    if not contact:
+        return jsonify({"message": "User not found."}), 404
+    
+    #IF WE FOUND CONTACT 
+    data =  request.json
+    # modify the contact from py and modify it to json contact
+    contact.first_name = data.get("firstName", contact.first_name) # if firstname exists give us firstname, if not give us whatever it was for the cotnact
+    contact.last_name = data.get("lastName", contact.last_name)
+    contact.email = data.get("email", contact.email)
+
+    database.session.commit() # once modified, commit 
+
+    return jsonify({"message": "User has been updated"}), 200
+
+#create delete 
+@app.route("/delete_contact/<int:user_id>", methods=["DELETE"])
+def delete_contact(user_id):
+    contact = Contact.query.get(user_id) # looking for the user
+    if not contact:
+        return jsonify({"message": "User not found."}), 404
+    
+    #IF WE FOUND CONTACT 
+    database.session.delete(contact)
+    database.session.commit()
+
+    jsonify({"meesage": "User has been deleted."}), 200
+
+# this finishes the API now onto the frontend
 
 
 
