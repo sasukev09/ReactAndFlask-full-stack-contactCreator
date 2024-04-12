@@ -1,5 +1,34 @@
+
+.modal {
+  position: fixed;
+  z-index: index 1;
+  left:0;
+  top: 0;
+  width:100%;
+  height: 100;
+  overflow: auto;
+  background-color:rgba(117, 56, 158, 0.4)
+}
+
+.modal-content {
+  background-color: rgb(209, 209, 209);
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid #58008b;
+  width: 80%;
+}
+
+.close {
+  color:rgb(0, 0, 0);
+  float:right;
+  font-size: 100px;
+  font-weight: bold;
+}
+
+
+/*
 #root {
-  max-width: 1280px;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
@@ -40,3 +69,4 @@
 .read-the-docs {
   color: #888;
 }
+*/

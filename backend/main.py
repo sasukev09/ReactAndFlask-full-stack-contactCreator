@@ -13,7 +13,7 @@
 # api returns response on how it was handled
 from flask import request, jsonify # allows to return json data
 from configuration import app, database
-from models import Contact
+from modules import Contact
 
 # get method
 @app.route("/contacts", methods=["GET"]) # specify route url and method 
