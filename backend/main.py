@@ -76,7 +76,7 @@ def delete_contact(user_id):
     database.session.delete(contact)
     database.session.commit()
 
-    jsonify({"meesage": "User has been deleted."}), 200
+    return jsonify({"meesage": "User has been deleted."}), 200
 
 # this finishes the API now onto the frontend
 

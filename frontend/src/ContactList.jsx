@@ -29,10 +29,10 @@ const ContactList = ({contacts, updateContact, updateCallback}) => { // contacts
         <table>
             <thead>
                 <tr>
-                    <th>First Name</th>
-                <th >Last Name</th>
-                <th >Email</th>
-                    <th>Actions</th>
+                <th class="column">First Name</th>
+                <th class="column">Last Name</th>
+                <th class="column">Email</th>
+                <th class="column">Actions</th>
                 </tr>
             </thead>
             <tbody>
